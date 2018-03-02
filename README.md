@@ -14,3 +14,8 @@ Kinect Tracking and Drawing code for Sonder Installation.
 * Open `kinectText.xcodeproj`
 
 * Build
+
+## Common Problems
+
+* Kinect is not working.
+  * Ensure kinect is plugged into a USB 3.0 port and is using a 3.0 type-b cable.
