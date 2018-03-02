@@ -1,3 +1,5 @@
+![Screenshot](https://imgur.com/a/CmNWm.jpg)
+
 # sonder
 Kinect Tracking and Drawing code for Sonder Installation.
 
