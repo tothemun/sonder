@@ -28,7 +28,7 @@ void ofApp::setup() {
   // gui.setBackgroundCallback(&ofApp::setBackgroundPressed);
   
   camera.setFarClip(20000);
-  camera.move(0,0,3000);
+  camera.setDistance(-1.5);
 }
 
 //--------------------------------------------------------------
@@ -45,6 +45,7 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw() {
   ofEnableDepthTest();
+  ofBackgroundGradient(ofColor::gray, ofColor::black, OF_GRADIENT_CIRCULAR);
   camera.begin();
   floor.draw();
   kinects[0]->drawPointCloud();
