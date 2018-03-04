@@ -21,7 +21,7 @@ Kinect Tracking and Drawing code for Sonder Installation.
   * Ensure kinect is plugged into a USB 3.0 port and is using a 3.0 type-b cable.
 
 
-##License
+## License
 (The MIT License)
 
 Copyright (c) 2012 Airbnb
