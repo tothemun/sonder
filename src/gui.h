@@ -17,6 +17,7 @@ class GUI {
     float getMaxDepth() { return maxDepth; }
     float onClickButton();
     void draw();
+    void setBackgroundCallback(void (*cb)(ofMouseEventArgs& args));
   private:
     ofxFloatSlider maxDepth;
     ofxButton bgBtn;

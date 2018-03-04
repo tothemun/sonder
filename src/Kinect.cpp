@@ -9,6 +9,9 @@
 
 Kinect::Kinect(string serial) {
   kinect.open(serial);
+  update();
+  setBackgroundImage();
+  isInitialized = true;
 }
 
 Kinect::~Kinect() {
@@ -19,6 +22,11 @@ void Kinect::setMaxDepth(float val) {
   maxDepth = val;
   cloud.setMaxDepth(maxDepth);
 }
+
+void Kinect::setBackgroundImage() {
+  texBackground = texDepth;
+}
+
 
 ofImage Kinect::getDepthImage() {
   ofImage img;
@@ -37,7 +45,7 @@ ofImage Kinect::getRGBImage() {
 void Kinect::update() {
   kinect.update();
   
-  if (kinect.isFrameNew()){
+  if (kinect.isFrameNew()) {
     rawDepth = kinect.getRawDepthPixels();
     depth = kinect.getDepthPixels();
     rgb = kinect.getRgbPixels();
@@ -49,13 +57,16 @@ void Kinect::update() {
   }
 }
 
-void Kinect::draw() {
+void Kinect::drawDepth() {
   if (texDepth.isAllocated() && texRGB.isAllocated()) {
     int texWidth = texDepth.getWidth();
     int texHeight = texDepth.getHeight();
     
     texDepth.draw(DW - texWidth, 0, texWidth, texHeight);
     //texRGB.draw(texDepth.getWidth(), 0, DW, DH);
-    cloud.draw();
   }
+}
+
+void Kinect::drawPointCloud() {
+  cloud.draw();
 }

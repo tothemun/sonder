@@ -8,6 +8,7 @@
 #include "ofxNI2.h"
 #include "ofxNiTE2.h"
 #include "gui.h"
+#include "floor.hpp"
 
 #define MAX_USERS 10
 #define MAX_DEPTH 10000
@@ -20,18 +21,7 @@ class ofApp : public ofBaseApp{
 		void setup();
 		void update();
 		void draw();
-
-		void keyPressed(int key);
-		void keyReleased(int key);
-		void mouseMoved(int x, int y );
-		void mouseDragged(int x, int y, int button);
-		void mousePressed(int x, int y, int button);
-		void mouseReleased(int x, int y, int button);
-		void mouseEntered(int x, int y);
-		void mouseExited(int x, int y);
-		void windowResized(int w, int h);
-		void dragEvent(ofDragInfo dragInfo);
-		void gotMessage(ofMessage msg);
+    void setBackgroundPressed(ofMouseEventArgs& args);
     vector <shared_ptr<Kinect>> kinects;
 
   private:
@@ -39,4 +29,6 @@ class ofApp : public ofBaseApp{
     ofxNI2::Device device;
     ofxNiTE2::UserTracker userTracker;
     GUI gui;
+    ofEasyCam camera;
+    Floor floor;
 };

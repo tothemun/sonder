@@ -24,6 +24,11 @@ void ofApp::setup() {
   for(int d = 0; d < kinects.size(); d++) {
     kinects[d] = shared_ptr<Kinect> (new Kinect(deviceList[d].serial));
   }
+  
+  // gui.setBackgroundCallback(&ofApp::setBackgroundPressed);
+  
+  camera.setFarClip(20000);
+  camera.move(0,0,3000);
 }
 
 //--------------------------------------------------------------
@@ -40,64 +45,17 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw() {
   ofEnableDepthTest();
-  kinects[0]->draw();
+  camera.begin();
+  floor.draw();
+  kinects[0]->drawPointCloud();
   //tracker.draw();
+  camera.end();
   ofDisableDepthTest();
+  kinects[0]->drawDepth();
   ofDrawBitmapString("MUN Kinect Test", 10, 14);
   gui.draw();
 }
 
-//--------------------------------------------------------------
-void ofApp::keyPressed(int key){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::keyReleased(int key){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y ){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseDragged(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mousePressed(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseReleased(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseEntered(int x, int y){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseExited(int x, int y){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::windowResized(int w, int h){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::gotMessage(ofMessage msg){
-
-}
-
-//--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){ 
-
+void ofApp::setBackgroundPressed(ofMouseEventArgs& args) {
+  kinects[0]->setBackgroundImage();
 }

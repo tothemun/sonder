@@ -19,17 +19,20 @@ class Kinect {
     Kinect(string serial);
     ~Kinect();
     void update();
-    void draw();
+    void drawDepth();
     void drawPointCloud();
     void setMaxDepth(float val);
+    void setBackgroundImage();
     ofImage getDepthImage();
     ofImage getRGBImage();
   
   private:
+    bool isInitialized = false;
     ofFloatPixels rawDepth;
     ofPixels depth;
     ofPixels rgb;
     ofxKinectV2 kinect;
+    ofTexture texBackground;
     ofTexture texDepth;
     ofTexture texRGB;
     float maxDepth = 1600;

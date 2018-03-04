@@ -51,10 +51,10 @@ void PointCloud::draw() {
   ofBackgroundGradient(ofColor::gray, ofColor::black, OF_GRADIENT_CIRCULAR);
   
   // even points can overlap with each other, let's avoid that
-  cam.begin();
-  cam.setDistance(-1.5);
+  //cam.begin();
+  //cam.setDistance(-1.5);
   ofScale(1, -1, -1); // Flip the Y and Z axis
   ofTranslate(-width / 2, -height / 2);
   mesh.draw();
-  cam.end();
+  //cam.end();
 }

@@ -13,6 +13,10 @@ GUI::GUI() {
   panel.add(bgBtn.setup("Capture Background"));
 }
 
+void GUI::setBackgroundCallback(void (*cb)(ofMouseEventArgs& args)) {
+  //bgBtn.addListener(this, cb);
+}
+
 void GUI::draw() {
   panel.draw();
 }

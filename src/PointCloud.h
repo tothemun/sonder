@@ -18,7 +18,7 @@ class PointCloud {
     void setMaxDepth(float val) { maxDepth = val; }
   private:
     int resW, resH;
-    ofEasyCam cam;
+    // ofEasyCam cam;
     ofMesh mesh;
     int width;
     int height;
